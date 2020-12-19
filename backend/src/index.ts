@@ -1,21 +1,17 @@
 import express from 'express';
 import cors from 'cors';
-import mongoose from 'mongoose';
-import dotenvConfig from 'dotenv';
+import bodyParser from 'body-parser'
+
+import routes from './routes/routes';
+import MongoDB from './db/config';
 
 const app = express();
+app.use(express.json());
 app.use(cors());
+app.use(routes);
 
-dotenvConfig.config();
-const mongoDB = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD}@myshop.sjqif.mongodb.net/test`;
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
-
-const db = mongoose.connection;
-
-
-app.get('/', (req, res) => {
-
-})
 
 
 app.listen(3333);
+
+export default app;
