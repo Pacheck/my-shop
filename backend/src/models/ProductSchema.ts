@@ -14,6 +14,8 @@ const ProductModel = new Schema({
     price: Number
 });
 
-const MyProductModel = model<IProductModel>('Products', ProductModel);
+
+
+const MyProductModel = model<IProductModel>('MyProducts', ProductModel);
 
 export default MyProductModel;
