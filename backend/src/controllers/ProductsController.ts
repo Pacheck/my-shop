@@ -10,7 +10,7 @@ export default {
 
     async index(req: Request, res: Response) {
         const query = req.query;
-        
+
         await MyProductModel.find(query)
         .then(response => res.status(200).send(response))
         .catch(err => res.status(404).send(err))
@@ -26,6 +26,7 @@ export default {
 
     async create(req: Request, res: Response) {
         const { type, name, specs, price } = req.body;
+        console.log(req.body)
         
         if(!req.query){
             return res.status(404).send({ message: 'NOT FOUND QUERIES'})
@@ -60,7 +61,7 @@ export default {
         }
 
         await MyProductModel.deleteMany(req.query);
-        return res.status(402).send({ message: 'Doc was deleted successfully'});
+        return res.status(200).send({ message: 'Doc was deleted successfully'});
     },
 
     async deleteByID(req: Request, res: Response){

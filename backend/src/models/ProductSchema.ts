@@ -15,7 +15,6 @@ const ProductModel = new Schema({
 });
 
 
-
 const MyProductModel = model<IProductModel>('MyProducts', ProductModel);
 
 export default MyProductModel;
